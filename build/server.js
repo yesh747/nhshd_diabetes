@@ -2538,7 +2538,15 @@ module.exports =
   
   var data = [{ name: 'Page A', uv: 4000, pv: 2400, amt: 2400, value: 600 }, { name: 'Page B', uv: 3000, pv: 1398, amt: 2210, value: 300 }, { name: 'Page C', uv: 2000, pv: 9800, amt: 2290, value: 500 }, { name: 'Page D', uv: 2780, pv: 3908, amt: 2000, value: 400 }, { name: 'Page E', uv: 1890, pv: 4800, amt: 2181, value: 200 }, { name: 'Page F', uv: 2390, pv: 3800, amt: 2500, value: 700 }, { name: 'Page G', uv: 3490, pv: 4300, amt: 2100, value: 100 }];
   
-  var dataTest = [{ name: 'Johnny', username: 'jscott', svg: 300, date: 1 }, { name: 'Johnny', username: 'jscott', svg: 400, date: 2 }, { name: 'Johnny', username: 'jscott', svg: 200, date: 3 }, { name: 'Johnny', username: 'jscott', svg: 200, date: 4 }, { name: 'Johnny', username: 'jscott', svg: 250, date: 5 }];
+  // const dataTest = [
+  //   { name: 'Johnny', username: 'jscott', sgv: 300, date: 1 },
+  //   { name: 'Johnny', username: 'jscott', sgv: 400, date: 2 },
+  //   { name: 'Johnny', username: 'jscott', sgv: 200, date: 3 },
+  //   { name: 'Johnny', username: 'jscott', sgv: 200, date: 4 },
+  //   { name: 'Johnny', username: 'jscott', sgv: 250, date: 5 },
+  // ];
+  
+  var dataTest = [{ patientId: "mattsdaughter", date: 1, sgv: 126, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a6760f1314e23004915814f", "dateString": "Tue Jan 23 16:20:02 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 2, sgv: 135, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a67622c314e230049160bc1", "dateString": "Tue Jan 23 16:25:03 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 3, sgv: 137, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a676345314e230049168557", "dateString": "Tue Jan 23 16:30:03 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 4, sgv: 141, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a67647b314e230049170c8a", "dateString": "Tue Jan 23 16:35:02 GMT+00:00 2018", "type": "sgv" }];
   
   var Home = function (_React$Component) {
     (0, _inherits3.default)(Home, _React$Component);
@@ -2563,11 +2571,11 @@ module.exports =
         _axios2.default.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata?patientId=mattsdaughter')
         // axios.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata')
         .then(function (res) {
-          console.log(res);
-          var ptData = res.data.Items.slice(0, 20);
-          // console.log(ptData);
-          _this2.setState({ data: dataTest });
-          console.log(_this2.state.data);
+          // console.log(res);
+          var ptData = res.data.Items;
+          // console.log(JSON.parse(ptData));
+          _this2.setState({ data: ptData });
+          // console.log(this.state.data);
         }).catch(function (e) {
           console.log(e);
           // alert(e);
@@ -2629,7 +2637,7 @@ module.exports =
                   _react2.default.createElement(_recharts.YAxis, null),
                   _react2.default.createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
                   _react2.default.createElement(_recharts.Tooltip, null),
-                  _react2.default.createElement(_recharts.Area, { type: 'monotone', dataKey: 'svg', stackId: '1', stroke: '#8884d8', fill: '#8884d8' })
+                  _react2.default.createElement(_recharts.Area, { type: 'monotone', dataKey: 'sgv', stackId: '1', stroke: '#8884d8', fill: '#8884d8' })
                 )
               )
             ),

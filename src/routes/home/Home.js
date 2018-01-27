@@ -33,13 +33,20 @@ const data = [
       { name: 'Page G', uv: 3490, pv: 4300, amt: 2100, value: 100 },
 ];
 
+// const dataTest = [
+//   { name: 'Johnny', username: 'jscott', sgv: 300, date: 1 },
+//   { name: 'Johnny', username: 'jscott', sgv: 400, date: 2 },
+//   { name: 'Johnny', username: 'jscott', sgv: 200, date: 3 },
+//   { name: 'Johnny', username: 'jscott', sgv: 200, date: 4 },
+//   { name: 'Johnny', username: 'jscott', sgv: 250, date: 5 },
+// ];
+
 const dataTest = [
-  { name: 'Johnny', username: 'jscott', svg: 300, date: 1 },
-  { name: 'Johnny', username: 'jscott', svg: 400, date: 2 },
-  { name: 'Johnny', username: 'jscott', svg: 200, date: 3 },
-  { name: 'Johnny', username: 'jscott', svg: 200, date: 4 },
-  { name: 'Johnny', username: 'jscott', svg: 250, date: 5 },
-];
+  {patientId:"mattsdaughter",date:1,sgv:126,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a6760f1314e23004915814f","dateString":"Tue Jan 23 16:20:02 GMT+00:00 2018","type":"sgv"},
+  {"patientId":"mattsdaughter",date:2,sgv:135,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67622c314e230049160bc1","dateString":"Tue Jan 23 16:25:03 GMT+00:00 2018","type":"sgv"},
+  {"patientId":"mattsdaughter",date:3,sgv:137,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a676345314e230049168557","dateString":"Tue Jan 23 16:30:03 GMT+00:00 2018","type":"sgv"},
+  {"patientId":"mattsdaughter",date:4,sgv:141,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67647b314e230049170c8a","dateString":"Tue Jan 23 16:35:02 GMT+00:00 2018","type":"sgv"}
+]
 
 class Home extends React.Component {
 
@@ -55,11 +62,11 @@ class Home extends React.Component {
     axios.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata?patientId=mattsdaughter')
     // axios.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata')
       .then(res => {
-        console.log(res);
-        const ptData = res.data.Items.slice(0, 20);
-        // console.log(ptData);
-        this.setState({ data: dataTest });
-        console.log(this.state.data);
+        // console.log(res);
+        const ptData = res.data.Items;
+        // console.log(JSON.parse(ptData));
+        this.setState({ data: ptData});
+        // console.log(this.state.data);
       })
       .catch(e => {
         console.log(e);
@@ -94,7 +101,7 @@ class Home extends React.Component {
                 <YAxis />
                 <CartesianGrid stroke="#ccc" />
                 <Tooltip />
-                <Area type="monotone" dataKey="svg" stackId="1" stroke="#8884d8" fill="#8884d8" />
+                <Area type="monotone" dataKey="sgv" stackId="1" stroke="#8884d8" fill="#8884d8" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
