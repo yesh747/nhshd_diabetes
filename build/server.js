@@ -2451,7 +2451,7 @@ module.exports =
                     _react2.default.createElement(_recharts.YAxis, null),
                     _react2.default.createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
                     _react2.default.createElement(_recharts.Tooltip, null),
-                    _react2.default.createElement(_recharts.Area, { type: 'monotone', dataKey: 'sgv', stackId: '1', stroke: '#8884d8', fill: '#8884d8' })
+                    _react2.default.createElement(_recharts.Area, { type: 'monotone', dataKey: 'sgv', stackId: '1', stroke: color, fill: color })
                   )
                 )
               ),

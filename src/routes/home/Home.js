@@ -222,7 +222,7 @@ class Home extends React.Component {
                   <YAxis />
                   <CartesianGrid stroke="#ccc" />
                   <Tooltip />
-                  <Area type="monotone" dataKey="sgv" stackId="1" stroke="#8884d8" fill="#8884d8" />
+                  <Area type="monotone" dataKey="sgv" stackId="1" stroke={color} fill={color} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
