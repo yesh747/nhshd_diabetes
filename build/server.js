@@ -2172,13 +2172,80 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var title = 'NightScout Dashboard';
+  // const title = 'NightScout Dashboard';
   
-  var data1 = [{ name: 'Page A', uv: 4000, pv: 2400, amt: 2400, value: 600 }, { name: 'Page B', uv: 3000, pv: 1398, amt: 2210, value: 300 }, { name: 'Page C', uv: 2000, pv: 9800, amt: 2290, value: 500 }, { name: 'Page D', uv: 2780, pv: 3908, amt: 2000, value: 400 }, { name: 'Page E', uv: 1890, pv: 4800, amt: 2181, value: 200 }, { name: 'Page F', uv: 2390, pv: 3800, amt: 2500, value: 700 }, { name: 'Page G', uv: 3490, pv: 4300, amt: 2100, value: 100 }];
+  // const dataTest = [
+  //   {"patientId":"mattsdaughter",date:1, sgv:65/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a6760f1314e23004915814f","dateString":"Tue Jan 23 16:20:02 GMT+00:00 2018","type":"sgv"},
+  //   // {"patientId":"mattsdaughter",date:2,sgv:135/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67622c314e230049160bc1","dateString":"Tue Jan 23 16:25:03 GMT+00:00 2018","type":"sgv"},
+  //   {"patientId":"mattsdaughter",date:3,sgv:137/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a676345314e230049168557","dateString":"Tue Jan 23 16:30:03 GMT+00:00 2018","type":"sgv"},
+  //   {"patientId":"mattsdaughter",date:4,sgv:170/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67647b314e230049170c8a","dateString":"Tue Jan 23 16:35:02 GMT+00:00 2018","type":"sgv"}
+  // ]
   
-  var dataTest = [{ "patientId": "mattsdaughter", date: 1, sgv: 65 / 18.1, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a6760f1314e23004915814f", "dateString": "Tue Jan 23 16:20:02 GMT+00:00 2018", "type": "sgv" },
-  // {"patientId":"mattsdaughter",date:2,sgv:135/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67622c314e230049160bc1","dateString":"Tue Jan 23 16:25:03 GMT+00:00 2018","type":"sgv"},
-  { "patientId": "mattsdaughter", date: 3, sgv: 137 / 18.1, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a676345314e230049168557", "dateString": "Tue Jan 23 16:30:03 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 4, sgv: 170 / 18.1, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a67647b314e230049170c8a", "dateString": "Tue Jan 23 16:35:02 GMT+00:00 2018", "type": "sgv" }];
+  var createMessage = function createMessage(slope) {
+    if (slope > 0.005) {
+      return {
+        message: _react2.default.createElement(
+          'span',
+          null,
+          'Glucose trending ',
+          _react2.default.createElement(
+            'b',
+            null,
+            'UP SEVERELY'
+          )
+        ),
+        color: '#d9534f'
+      };
+    } else if (slope < -0.005) {
+      return {
+        message: _react2.default.createElement(
+          'span',
+          null,
+          'Glucose trending ',
+          _react2.default.createElement(
+            'b',
+            null,
+            'DOWN SEVERELY'
+          )
+        ),
+        color: '#d9534f'
+      };
+    } else if (slope > 0.001) {
+      return {
+        message: _react2.default.createElement(
+          'span',
+          null,
+          'Glucose trending ',
+          _react2.default.createElement(
+            'b',
+            null,
+            'UP'
+          )
+        ),
+        color: '#337ab7'
+      };
+    } else if (slope < -0.001) {
+      return {
+        message: _react2.default.createElement(
+          'span',
+          null,
+          'Glucose trending ',
+          _react2.default.createElement(
+            'b',
+            null,
+            'DOWN'
+          )
+        ),
+        color: '#337ab7'
+      };
+    }
+  
+    return {
+      message: 'Doing great',
+      backgroundColor: 'green',
+      color: '#5cb85c'
+    };
+  };
   
   var createStats = function createStats(data) {
     var total = 0;
@@ -2210,6 +2277,26 @@ module.exports =
     return result;
   };
   
+  var calcWarningHeaders = function calcWarningHeaders(slopesArray) {
+    var good = 0;
+    var moderate = 0;
+    var bad = 0;
+    slopesArray.forEach(function (slope) {
+      var result = createMessage(slope);
+      if (result.color === '#5cb85c') {
+        good += 1;
+      } else if (result.color === '#337ab7') {
+        moderate += 1;
+      } else if (result.color === '#d9534f') {
+        bad += 1;
+      }
+    });
+  
+    console.log({ good: good, moderate: moderate, bad: bad });
+  
+    return { good: good, moderate: moderate, bad: bad };
+  };
+  
   var Home = function (_React$Component) {
     (0, _inherits3.default)(Home, _React$Component);
   
@@ -2217,15 +2304,27 @@ module.exports =
       (0, _classCallCheck3.default)(this, Home);
   
       // console.log(this);
+  
       var _this = (0, _possibleConstructorReturn3.default)(this, (Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).call(this, props));
   
+      var slopeMD = 0.002;
+      var slopeJK = -0.005;
+      var slopeTB = -0.0001;
+  
       _this.state = {
+        summary: calcWarningHeaders([slopeMD, slopeJK, slopeTB]),
+  
         dataMD: [],
         pieMD: [],
+        slopeMD: slopeMD,
+  
         dataJK: [],
         pieJK: [],
+        slopeJK: slopeJK,
+  
         dataTB: [],
-        pieTB: []
+        pieTB: [],
+        slopeTB: slopeTB
       };
       return _this;
     }
@@ -2244,10 +2343,10 @@ module.exports =
             pieMD: createStats(ptData)
           });
         }).catch(function (e) {
-          _this2.setState({
-            dataMD: dataTest,
-            pieMD: createStats(dataTest)
-          });
+          // this.setState({
+          //   dataMD: dataTest,
+          //   pieMD: createStats(dataTest)
+          // });
           console.log(e);
           // alert(e);
         });
@@ -2273,7 +2372,6 @@ module.exports =
             dataTB: ptData,
             pieTB: createStats(ptData)
           });
-          console.log(_this2.state.data);
         }).catch(function (e) {
           console.log(e);
           // alert(e);
@@ -2281,33 +2379,52 @@ module.exports =
       }
     }, {
       key: 'renderPatientPanel',
-      value: function renderPatientPanel(dataPt, pieData) {
+      value: function renderPatientPanel(dataPt, pieData, slope) {
         if (dataPt[0]) {
+          var _createMessage = createMessage(slope),
+              message = _createMessage.message,
+              color = _createMessage.color;
+  
           return _react2.default.createElement(
             _reactBootstrap.Panel,
             {
               header: _react2.default.createElement(
-                'span',
+                'div',
                 null,
-                _react2.default.createElement('i', { className: 'fa fa-bar-chart-o fa-fw' }),
-                ' ',
-                dataPt[0].patientId,
                 _react2.default.createElement(
-                  'div',
-                  { className: 'pull-right' },
+                  'span',
+                  { style: { color: color } },
+                  _react2.default.createElement('i', { className: 'fa fa-bar-chart-o fa-fw' }),
+                  ' ',
                   _react2.default.createElement(
-                    _reactBootstrap.DropdownButton,
-                    { title: 'Dropdown', bsSize: 'xs', pullRight: true, id: 'dropdownButton1' },
+                    'b',
+                    null,
+                    dataPt[0].patientId,
+                    ':'
+                  ),
+                  ' \xA0',
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    message
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'pull-right' },
                     _react2.default.createElement(
-                      _reactBootstrap.MenuItem,
-                      { eventKey: '1' },
-                      'Send Patient Text'
-                    ),
-                    _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
-                    _react2.default.createElement(
-                      _reactBootstrap.MenuItem,
-                      { eventKey: '2' },
-                      'Send Patient Email'
+                      _reactBootstrap.DropdownButton,
+                      { title: 'Actions', bsSize: 'xs', pullRight: true, id: 'dropdownButton1' },
+                      _react2.default.createElement(
+                        _reactBootstrap.MenuItem,
+                        { eventKey: '1' },
+                        'Send Patient Text'
+                      ),
+                      _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
+                      _react2.default.createElement(
+                        _reactBootstrap.MenuItem,
+                        { eventKey: '2' },
+                        'Send Patient Email'
+                      )
                     )
                   )
                 )
@@ -2330,7 +2447,7 @@ module.exports =
                         top: 10, right: 30, left: 0, bottom: 0
                       }
                     },
-                    _react2.default.createElement(_recharts.XAxis, { dataKey: 'date' }),
+                    _react2.default.createElement(_recharts.XAxis, { dataKey: 'dateF' }),
                     _react2.default.createElement(_recharts.YAxis, null),
                     _react2.default.createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
                     _react2.default.createElement(_recharts.Tooltip, null),
@@ -2356,6 +2473,7 @@ module.exports =
     }, {
       key: 'render',
       value: function render() {
+        console.log(this.state.summary);
         return _react2.default.createElement(
           'div',
           null,
@@ -2381,8 +2499,8 @@ module.exports =
               _react2.default.createElement(_Widget2.default, {
                 style: 'panel-red',
                 icon: 'fa fa-exclamation-circle fa-5x',
-                count: '0',
-                headerText: 'Needs Immediate Attention!',
+                count: this.state.summary.bad,
+                headerText: 'Flag for Attention!',
                 footerText: 'View Details',
                 linkTo: '/'
               })
@@ -2393,8 +2511,8 @@ module.exports =
               _react2.default.createElement(_Widget2.default, {
                 style: 'panel-primary',
                 icon: 'fa fa-exclamation-triangle fa-5x',
-                count: '1',
-                headerText: 'Risky Behavior',
+                count: this.state.summary.moderate,
+                headerText: 'Change in Management',
                 footerText: 'View Details',
                 linkTo: '/'
               })
@@ -2405,7 +2523,7 @@ module.exports =
               _react2.default.createElement(_Widget2.default, {
                 style: 'panel-green',
                 icon: 'fa fa-check fa-5x',
-                count: '2',
+                count: this.state.summary.good,
                 headerText: 'Patients doing great!',
                 footerText: 'View Details',
                 linkTo: '/'
@@ -2421,7 +2539,7 @@ module.exports =
               _react2.default.createElement(
                 'div',
                 null,
-                this.renderPatientPanel(this.state.dataMD, this.state.pieMD)
+                this.renderPatientPanel(this.state.dataJK, this.state.pieJK, this.state.slopeJK)
               )
             )
           ),
@@ -2434,7 +2552,7 @@ module.exports =
               _react2.default.createElement(
                 'div',
                 null,
-                this.renderPatientPanel(this.state.dataJK, this.state.pieJK)
+                this.renderPatientPanel(this.state.dataMD, this.state.pieMD, this.state.slopeMD)
               )
             )
           ),
@@ -2447,7 +2565,7 @@ module.exports =
               _react2.default.createElement(
                 'div',
                 null,
-                this.renderPatientPanel(this.state.dataTB, this.state.pieTB)
+                this.renderPatientPanel(this.state.dataTB, this.state.pieTB, this.state.slopeM)
               )
             )
           )
