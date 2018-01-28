@@ -36,7 +36,7 @@ const data1 = [
 
 const dataTest = [
   {"patientId":"mattsdaughter",date:1, sgv:65/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a6760f1314e23004915814f","dateString":"Tue Jan 23 16:20:02 GMT+00:00 2018","type":"sgv"},
-  {"patientId":"mattsdaughter",date:2,sgv:135/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67622c314e230049160bc1","dateString":"Tue Jan 23 16:25:03 GMT+00:00 2018","type":"sgv"},
+  // {"patientId":"mattsdaughter",date:2,sgv:135/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67622c314e230049160bc1","dateString":"Tue Jan 23 16:25:03 GMT+00:00 2018","type":"sgv"},
   {"patientId":"mattsdaughter",date:3,sgv:137/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a676345314e230049168557","dateString":"Tue Jan 23 16:30:03 GMT+00:00 2018","type":"sgv"},
   {"patientId":"mattsdaughter",date:4,sgv:170/18.1,"device":"medtronic-600://6213-1032979","direction":"FortyFiveUp","_id":"5a67647b314e230049170c8a","dateString":"Tue Jan 23 16:35:02 GMT+00:00 2018","type":"sgv"}
 ]
