@@ -1395,16 +1395,10 @@ module.exports =
           _react2.default.createElement(
             'span',
             null,
-            _react2.default.createElement('img', { src: logo, alt: 'Start React', title: 'Start React' }),
             _react2.default.createElement(
               'span',
               null,
-              '\xA0SB Admin React - '
-            ),
-            _react2.default.createElement(
-              'a',
-              { href: 'http://startreact.com/', title: 'Start React', rel: 'home' },
-              'StartReact.com'
+              '\xA0NightScout Dashboard'
             ),
             _react2.default.createElement(
               'button',
@@ -1994,8 +1988,6 @@ module.exports =
     (0, _createClass3.default)(Sidebar, [{
       key: 'render',
       value: function render() {
-        var _this2 = this;
-  
         return _react2.default.createElement(
           'div',
           { className: 'navbar-default sidebar', style: { marginLeft: '-20px' }, role: 'navigation' },
@@ -2033,360 +2025,6 @@ module.exports =
                     } },
                   _react2.default.createElement('i', { className: 'fa fa-dashboard fa-fw' }),
                   ' \xA0Dashboard'
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: (0, _classnames2.default)({ active: !this.state.chartsElementsCollapsed }) },
-                _react2.default.createElement(
-                  'a',
-                  {
-                    href: '',
-                    onClick: function onClick(e) {
-                      e.preventDefault();
-                      _this2.setState({ chartsElementsCollapsed: !_this2.state.chartsElementsCollapsed });
-                      return false;
-                    }
-                  },
-                  _react2.default.createElement('i', { className: 'fa fa-bar-chart-o fa-fw' }),
-                  ' \xA0Charts',
-                  _react2.default.createElement('span', { className: 'fa arrow' })
-                ),
-                _react2.default.createElement(
-                  'ul',
-                  {
-                    className: (0, _classnames2.default)({
-                      'nav nav-second-level': true,
-                      collapse: this.state.chartsElementsCollapsed
-                    })
-                  },
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/flotcharts');
-                        } },
-                      'FlotCharts'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      {
-                        href: '',
-                        onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/morrisjscharts');
-                        }
-                      },
-                      'Morrisjs Charts'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '', onClick: function onClick(e) {
-                      e.preventDefault();_history2.default.push('/table');
-                    } },
-                  _react2.default.createElement('i', { className: 'fa fa-table fa-fw' }),
-                  ' \xA0Tables'
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '', onClick: function onClick(e) {
-                      e.preventDefault();_history2.default.push('/forms');
-                    } },
-                  _react2.default.createElement('i', { className: 'fa fa-table fa-fw' }),
-                  ' \xA0Forms'
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: (0, _classnames2.default)({ active: !this.state.uiElementsCollapsed }) },
-                _react2.default.createElement(
-                  'a',
-                  {
-                    href: '',
-                    onClick: function onClick(e) {
-                      e.preventDefault();
-                      _this2.setState({ uiElementsCollapsed: !_this2.state.uiElementsCollapsed
-                      });return false;
-                    }
-                  },
-                  _react2.default.createElement('i', { className: 'fa fa-edit fa-fw' }),
-                  ' UI Elements',
-                  _react2.default.createElement('span', { className: 'fa arrow' })
-                ),
-                _react2.default.createElement(
-                  'ul',
-                  {
-                    className: (0, _classnames2.default)({
-                      'nav nav-second-level': true,
-                      collapse: this.state.uiElementsCollapsed
-                    })
-                  },
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/panelwells');
-                        } },
-                      'Panels And Wells'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/button');
-                        } },
-                      'Buttons'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      {
-                        href: '',
-                        onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/notification');
-                        }
-                      },
-                      'Notification'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/typography');
-                        } },
-                      'Typography'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/icons');
-                        } },
-                      'Icons'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/grid');
-                        } },
-                      'Grid'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: (0, _classnames2.default)({ active: !this.state.multiLevelDropdownCollapsed }) },
-                _react2.default.createElement(
-                  'a',
-                  {
-                    href: '',
-                    onClick: function onClick(e) {
-                      e.preventDefault();
-                      _this2.setState({
-                        multiLevelDropdownCollapsed: !_this2.state.multiLevelDropdownCollapsed
-                      });
-                      return false;
-                    }
-                  },
-                  _react2.default.createElement('i', { className: 'fa fa-sitemap fa-fw' }),
-                  '\xA0Multi-Level Dropdown',
-                  _react2.default.createElement('span', { className: 'fa arrow' })
-                ),
-                _react2.default.createElement(
-                  'ul',
-                  {
-                    className: (0, _classnames2.default)({
-                      'nav nav-second-level': true, collapse: this.state.multiLevelDropdownCollapsed
-                    })
-                  },
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();
-                        } },
-                      'Second Level Item'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();
-                        } },
-                      'Second Level Item'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    { className: (0, _classnames2.default)({ active: !this.state.thirdLevelDropdownCollapsed }) },
-                    _react2.default.createElement(
-                      'a',
-                      {
-                        href: '',
-                        onClick: function onClick(e) {
-                          e.preventDefault();
-                          _this2.setState({
-                            thirdLevelDropdownCollapsed: !_this2.state.thirdLevelDropdownCollapsed
-                          });
-                          return false;
-                        }
-                      },
-                      'Third Level',
-                      _react2.default.createElement('span', { className: 'fa arrow' })
-                    ),
-                    _react2.default.createElement(
-                      'ul',
-                      {
-                        className: (0, _classnames2.default)({
-                          'nav nav-second-level': true,
-                          collapse: this.state.thirdLevelDropdownCollapsed
-                        })
-                      },
-                      _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                          'a',
-                          { href: '', onClick: function onClick(e) {
-                              e.preventDefault();
-                            } },
-                          'Third Level Item'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                          'a',
-                          { href: '', onClick: function onClick(e) {
-                              e.preventDefault();
-                            } },
-                          'Third Level Item'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                          'a',
-                          { href: '', onClick: function onClick(e) {
-                              e.preventDefault();
-                            } },
-                          'Third Level Item'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'li',
-                        null,
-                        _react2.default.createElement(
-                          'a',
-                          { href: '', onClick: function onClick(e) {
-                              e.preventDefault();
-                            } },
-                          'Third Level Item'
-                        )
-                      )
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                { className: (0, _classnames2.default)({ active: !this.state.samplePagesCollapsed }) },
-                _react2.default.createElement(
-                  'a',
-                  {
-                    href: '',
-                    onClick: function onClick(e) {
-                      e.preventDefault();
-                      _this2.setState({
-                        samplePagesCollapsed: !_this2.state.samplePagesCollapsed
-                      });
-                      return false;
-                    }
-                  },
-                  _react2.default.createElement('i', { className: 'fa fa-files-o fa-fw' }),
-                  '\xA0Sample Pages',
-                  _react2.default.createElement('span', { className: 'fa arrow' })
-                ),
-                _react2.default.createElement(
-                  'ul',
-                  {
-                    className: (0, _classnames2.default)({
-                      'nav nav-second-level': true,
-                      collapse: this.state.samplePagesCollapsed
-                    })
-                  },
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/blank');
-                        } },
-                      'Blank'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                      'a',
-                      { href: '', onClick: function onClick(e) {
-                          e.preventDefault();_history2.default.push('/login');
-                        } },
-                      'Login'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: 'http://www.strapui.com/' },
-                  'Premium React Themes'
                 )
               )
             )
@@ -2536,17 +2174,39 @@ module.exports =
   
   var title = 'NightScout Dashboard';
   
-  var data = [{ name: 'Page A', uv: 4000, pv: 2400, amt: 2400, value: 600 }, { name: 'Page B', uv: 3000, pv: 1398, amt: 2210, value: 300 }, { name: 'Page C', uv: 2000, pv: 9800, amt: 2290, value: 500 }, { name: 'Page D', uv: 2780, pv: 3908, amt: 2000, value: 400 }, { name: 'Page E', uv: 1890, pv: 4800, amt: 2181, value: 200 }, { name: 'Page F', uv: 2390, pv: 3800, amt: 2500, value: 700 }, { name: 'Page G', uv: 3490, pv: 4300, amt: 2100, value: 100 }];
+  var data1 = [{ name: 'Page A', uv: 4000, pv: 2400, amt: 2400, value: 600 }, { name: 'Page B', uv: 3000, pv: 1398, amt: 2210, value: 300 }, { name: 'Page C', uv: 2000, pv: 9800, amt: 2290, value: 500 }, { name: 'Page D', uv: 2780, pv: 3908, amt: 2000, value: 400 }, { name: 'Page E', uv: 1890, pv: 4800, amt: 2181, value: 200 }, { name: 'Page F', uv: 2390, pv: 3800, amt: 2500, value: 700 }, { name: 'Page G', uv: 3490, pv: 4300, amt: 2100, value: 100 }];
   
-  // const dataTest = [
-  //   { name: 'Johnny', username: 'jscott', sgv: 300, date: 1 },
-  //   { name: 'Johnny', username: 'jscott', sgv: 400, date: 2 },
-  //   { name: 'Johnny', username: 'jscott', sgv: 200, date: 3 },
-  //   { name: 'Johnny', username: 'jscott', sgv: 200, date: 4 },
-  //   { name: 'Johnny', username: 'jscott', sgv: 250, date: 5 },
-  // ];
+  var dataTest = [{ "patientId": "mattsdaughter", date: 1, sgv: 65 / 18.1, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a6760f1314e23004915814f", "dateString": "Tue Jan 23 16:20:02 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 2, sgv: 135 / 18.1, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a67622c314e230049160bc1", "dateString": "Tue Jan 23 16:25:03 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 3, sgv: 137 / 18.1, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a676345314e230049168557", "dateString": "Tue Jan 23 16:30:03 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 4, sgv: 170 / 18.1, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a67647b314e230049170c8a", "dateString": "Tue Jan 23 16:35:02 GMT+00:00 2018", "type": "sgv" }];
   
-  var dataTest = [{ patientId: "mattsdaughter", date: 1, sgv: 126, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a6760f1314e23004915814f", "dateString": "Tue Jan 23 16:20:02 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 2, sgv: 135, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a67622c314e230049160bc1", "dateString": "Tue Jan 23 16:25:03 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 3, sgv: 137, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a676345314e230049168557", "dateString": "Tue Jan 23 16:30:03 GMT+00:00 2018", "type": "sgv" }, { "patientId": "mattsdaughter", date: 4, sgv: 141, "device": "medtronic-600://6213-1032979", "direction": "FortyFiveUp", "_id": "5a67647b314e230049170c8a", "dateString": "Tue Jan 23 16:35:02 GMT+00:00 2018", "type": "sgv" }];
+  var createStats = function createStats(data) {
+    var total = 0;
+    var above = 0;
+    var below = 0;
+    var min = 4;
+    var max = 9;
+    data.forEach(function (item) {
+      if (item.sgv > max) {
+        above++;
+      } else if (item.sgv < min) {
+        below++;
+      }
+      total++;
+    });
+  
+    // const result = {
+    //   above,
+    //   below,
+    //   total,
+    // };
+  
+    var result = [{ name: 'Hyperglycemic', value: above, fill: 'orange' }, { name: 'Normal', value: total - above - below, fill: 'green' }, { name: 'Hypoglycemic', value: below, fill: 'red' }];
+  
+    // console.log(result);
+    // console.log(result.above / result.total);
+    // console.log(result.below / result.total);
+  
+    return result;
+  };
   
   var Home = function (_React$Component) {
     (0, _inherits3.default)(Home, _React$Component);
@@ -2558,7 +2218,12 @@ module.exports =
       var _this = (0, _possibleConstructorReturn3.default)(this, (Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).call(this, props));
   
       _this.state = {
-        data: []
+        dataMD: [],
+        pieMD: [],
+        dataJK: [],
+        pieJK: [],
+        dataTB: [],
+        pieTB: []
       };
       return _this;
     }
@@ -2568,14 +2233,45 @@ module.exports =
       value: function componentDidMount() {
         var _this2 = this;
   
-        _axios2.default.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata?patientId=mattsdaughter')
-        // axios.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata')
-        .then(function (res) {
+        _axios2.default.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata?patientId=mattsdaughter').then(function (res) {
           // console.log(res);
           var ptData = res.data.Items;
           // console.log(JSON.parse(ptData));
-          _this2.setState({ data: ptData });
-          // console.log(this.state.data);
+          _this2.setState({
+            dataMD: ptData,
+            pieMD: createStats(ptData)
+          });
+        }).catch(function (e) {
+          _this2.setState({
+            dataMD: dataTest,
+            pieMD: createStats(dataTest)
+          });
+          console.log(e);
+          // alert(e);
+        });
+  
+        _axios2.default.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata?patientId=jk').then(function (res) {
+          // console.log(res);
+          var ptData = res.data.Items;
+          // console.log(JSON.parse(ptData));
+          _this2.setState({
+            dataJK: ptData,
+            pieJK: createStats(ptData)
+          });
+        }).catch(function (e) {
+          console.log(e);
+          // alert(e);
+        });
+  
+        _axios2.default.get('https://f37yrxnctl.execute-api.eu-west-1.amazonaws.com/prod/patientdata?patientId=tobias').then(function (res) {
+          // console.log(res);
+          var ptData = res.data.Items;
+          // console.log(JSON.parse(ptData));
+          _this2.setState({
+            dataTB: ptData,
+            pieTB: createStats(ptData)
+          });
+          console.log(_this2.state.data);
         }).catch(function (e) {
           console.log(e);
           // alert(e);
@@ -2583,75 +2279,78 @@ module.exports =
       }
     }, {
       key: 'renderPatientPanel',
-      value: function renderPatientPanel(_ref) {
-        var name = _ref.name;
-  
-        return _react2.default.createElement(
-          _reactBootstrap.Panel,
-          {
-            header: _react2.default.createElement(
-              'span',
-              null,
-              _react2.default.createElement('i', { className: 'fa fa-bar-chart-o fa-fw' }),
-              ' ',
-              name,
-              _react2.default.createElement(
-                'div',
-                { className: 'pull-right' },
+      value: function renderPatientPanel(dataPt, pieData) {
+        if (dataPt[0]) {
+          return _react2.default.createElement(
+            _reactBootstrap.Panel,
+            {
+              header: _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement('i', { className: 'fa fa-bar-chart-o fa-fw' }),
+                ' ',
+                dataPt[0].patientId,
                 _react2.default.createElement(
-                  _reactBootstrap.DropdownButton,
-                  { title: 'Dropdown', bsSize: 'xs', pullRight: true, id: 'dropdownButton1' },
+                  'div',
+                  { className: 'pull-right' },
                   _react2.default.createElement(
-                    _reactBootstrap.MenuItem,
-                    { eventKey: '1' },
-                    'Send Patient Text'
-                  ),
-                  _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
-                  _react2.default.createElement(
-                    _reactBootstrap.MenuItem,
-                    { eventKey: '2' },
-                    'Send Patient Email'
+                    _reactBootstrap.DropdownButton,
+                    { title: 'Dropdown', bsSize: 'xs', pullRight: true, id: 'dropdownButton1' },
+                    _react2.default.createElement(
+                      _reactBootstrap.MenuItem,
+                      { eventKey: '1' },
+                      'Send Patient Text'
+                    ),
+                    _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
+                    _react2.default.createElement(
+                      _reactBootstrap.MenuItem,
+                      { eventKey: '2' },
+                      'Send Patient Email'
+                    )
                   )
                 )
               )
-            )
-          },
-          _react2.default.createElement(
-            'div',
-            { className: 'row' },
+            },
             _react2.default.createElement(
               'div',
-              { className: 'col-lg-6' },
+              { className: 'row' },
               _react2.default.createElement(
-                _recharts.ResponsiveContainer,
-                { width: '100%', aspect: 2 },
+                'div',
+                { className: 'col-lg-6' },
                 _react2.default.createElement(
-                  _recharts.AreaChart,
-                  {
-                    data: this.state.data,
-                    margin: {
-                      top: 10, right: 30, left: 0, bottom: 0
-                    }
-                  },
-                  _react2.default.createElement(_recharts.XAxis, { dataKey: 'date' }),
-                  _react2.default.createElement(_recharts.YAxis, null),
-                  _react2.default.createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
-                  _react2.default.createElement(_recharts.Tooltip, null),
-                  _react2.default.createElement(_recharts.Area, { type: 'monotone', dataKey: 'sgv', stackId: '1', stroke: '#8884d8', fill: '#8884d8' })
+                  _recharts.ResponsiveContainer,
+                  { width: '100%', aspect: 2 },
+                  _react2.default.createElement(
+                    _recharts.AreaChart,
+                    {
+                      data: dataPt,
+                      margin: {
+                        top: 10, right: 30, left: 0, bottom: 0
+                      }
+                    },
+                    _react2.default.createElement(_recharts.XAxis, { dataKey: 'date' }),
+                    _react2.default.createElement(_recharts.YAxis, null),
+                    _react2.default.createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
+                    _react2.default.createElement(_recharts.Tooltip, null),
+                    _react2.default.createElement(_recharts.Area, { type: 'monotone', dataKey: 'sgv', stackId: '1', stroke: '#8884d8', fill: '#8884d8' })
+                  )
                 )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-lg-6' },
+                _react2.default.createElement(_Donut2.default, { data: pieData, color: '#8884d8', innerRadius: '70%', outerRadius: '90%' })
               )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'col-lg-6' },
-              _react2.default.createElement(_Donut2.default, { data: data, color: '#8884d8', innerRadius: '70%', outerRadius: '90%' })
             )
-          )
+          );
+        }
+  
+        return _react2.default.createElement(
+          'h1',
+          null,
+          'Loading'
         );
       }
-  
-      // context.setTitle(title);
-  
     }, {
       key: 'render',
       value: function render() {
@@ -2678,10 +2377,22 @@ module.exports =
               'div',
               { className: 'col-lg-3 col-md-6' },
               _react2.default.createElement(_Widget2.default, {
+                style: 'panel-red',
+                icon: 'fa fa-exclamation-circle fa-5x',
+                count: '0',
+                headerText: 'Needs Immediate Attention!',
+                footerText: 'View Details',
+                linkTo: '/'
+              })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-lg-3 col-md-6' },
+              _react2.default.createElement(_Widget2.default, {
                 style: 'panel-primary',
                 icon: 'fa fa-exclamation-triangle fa-5x',
-                count: '26',
-                headerText: 'New Comments!',
+                count: '1',
+                headerText: 'Risky Behavior',
                 footerText: 'View Details',
                 linkTo: '/'
               })
@@ -2692,20 +2403,8 @@ module.exports =
               _react2.default.createElement(_Widget2.default, {
                 style: 'panel-green',
                 icon: 'fa fa-check fa-5x',
-                count: '12',
-                headerText: 'New Tasks!',
-                footerText: 'View Details',
-                linkTo: '/'
-              })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'col-lg-3 col-md-6' },
-              _react2.default.createElement(_Widget2.default, {
-                style: 'panel-red',
-                icon: 'fa fa-exclamation-circle fa-5x',
-                count: '13',
-                headerText: 'Support Tickets!',
+                count: '2',
+                headerText: 'Patients doing great!',
                 footerText: 'View Details',
                 linkTo: '/'
               })
@@ -2720,7 +2419,33 @@ module.exports =
               _react2.default.createElement(
                 'div',
                 null,
-                this.renderPatientPanel({ name: 'Johnny' })
+                this.renderPatientPanel(this.state.dataMD, this.state.pieMD)
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-lg-12' },
+              _react2.default.createElement(
+                'div',
+                null,
+                this.renderPatientPanel(this.state.dataJK, this.state.pieJK)
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-lg-12' },
+              _react2.default.createElement(
+                'div',
+                null,
+                this.renderPatientPanel(this.state.dataTB, this.state.pieTB)
               )
             )
           )

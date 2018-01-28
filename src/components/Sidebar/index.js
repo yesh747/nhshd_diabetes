@@ -37,7 +37,7 @@ class Sidebar extends Component {
               </a>
             </li>
 
-            <li className={classNames({ active: !this.state.chartsElementsCollapsed })}>
+            {/* <li className={classNames({ active: !this.state.chartsElementsCollapsed })}>
               <a
                 href=""
                 onClick={(e) => {
@@ -241,7 +241,7 @@ class Sidebar extends Component {
 
             <li>
               <a href="http://www.strapui.com/">Premium React Themes</a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
